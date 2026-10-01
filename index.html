@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b4f9c">
+
+<title>Bursaalax Secondary School - Natiijooyinka</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif
+}
+
+body{
+  background:#f2f6fb;
+  color:#172033;
+  min-height:100vh
+}
+
+.header{
+  background:linear-gradient(135deg,#063b78,#0b65c2);
+  color:white;
+  padding:25px 15px 30px;
+  text-align:center;
+  border-bottom-left-radius:28px;
+  border-bottom-right-radius:28px;
+  box-shadow:0 5px 20px rgba(0,0,0,.15)
+}
+
+.logo{
+  width:72px;
+  height:72px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:white;
+  color:#0b4f9c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  font-weight:900;
+  box-shadow:0 4px 12px rgba(0,0,0,.2)
+}
+
+.header h1{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:.5px
+}
+
+.header p{
+  margin-top:7px;
+  font-size:13px;
+  opacity:.92
+}
+
+.year{
+  display:inline-block;
+  margin-top:10px;
+  padding:6px 14px;
+  border-radius:20px;
+  background:rgba(255,255,255,.15);
+  font-size:12px
+}
+
+.container{
+  width:100%;
+  max-width:650px;
+  margin:auto;
+  padding:18px 13px 40px
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:15px;
+  box-shadow:0 4px 18px rgba(24,58,94,.08);
+  border:1px solid #e8eef5
+}
+
+.card-title{
+  font-size:18px;
+  font-weight:800;
+  color:#0a4e98;
+  margin-bottom:5px
+}
+
+.card-subtitle{
+  font-size:13px;
+  color:#697586;
+  line-height:1.5;
+  margin-bottom:18px
+}
+
+.step{
+  display:none
+}
+
+.step.active{
+  display:block;
+  animation:fade .3s ease
+}
+
+@keyframes fade{
+  from{
+    opacity:0;
+    transform:translateY(7px)
+  }
+  to{
+    opacity:1;
+    transform:translateY(0)
+  }
+}
+
+.progress{
+  display:flex;
+  gap:6px;
+  margin-bottom:18px
+}
+
+.progress-item{
+  height:5px;
+  flex:1;
+  background:#dfe7f0;
+  border-radius:10px
+}
+
+.progress-item.active{
+  background:#0b65c2
+}
+
+label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
+  color:#344054
+}
+
+input{
+  width:100%;
+  height:50px;
+  border:1px solid #d7e0ea;
+  border-radius:12px;
+  padding:0 14px;
+  font-size:15px;
+  outline:none;
+  background:#fff;
+  color:#172033;
+  transition:.2s
+}
+
+input:focus{
+  border-color:#0b65c2;
+  box-shadow:0 0 0 3px rgba(11,101,194,.1)
+}
+
+.form-group{
+  margin-bottom:15px
+}
+
+.btn{
+  width:100%;
+  height:50px;
+  border:0;
+  border-radius:12px;
+  background:#0b65c2;
+  color:white;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s
+}
+
+.btn:active{
+  transform:scale(.98)
+}
+
+.btn:hover{
+  background:#084f99
+}
+
+.btn.secondary{
+  background:#edf4fb;
+  color:#0b579f;
+  margin-top:10px
+}
+
+.notice{
+  padding:13px;
+  background:#eef6ff;
+  border-left:4px solid #0b65c2;
+  border-radius:10px;
+  color:#35516d;
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:15px
+}
+
+.error{
+  display:none;
+  background:#fff0f0;
+  color:#b42318;
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  margin-bottom:14px;
+  border:1px solid #ffd1d1
+}
+
+.classes{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px
+}
+
+.class-box{
+  background:#f8fbff;
+  border:1px solid #dce8f4;
+  border-radius:16px;
+  padding:17px 10px;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s
+}
+
+.class-box:hover{
+  border-color:#0b65c2;
+  transform:translateY(-2px)
+}
+
+.class-icon{
+  width:45px;
+  height:45px;
+  margin:0 auto 9px;
+  border-radius:13px;
+  background:#e7f1fc;
+  color:#0b65c2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:17px
+}
+
+.class-box h3{
+  font-size:14px;
+  color:#1d2939
+}
+
+.class-box p{
+  font-size:11px;
+  color:#667085;
+  margin-top:4px
+}
+
+.result-header{
+  text-align:center;
+  border-bottom:1px solid #e6edf4;
+  padding-bottom:15px;
+  margin-bottom:15px
+}
+
+.result-header h2{
+  color:#0b579f;
+  font-size:20px
+}
+
+.result-header p{
+  color:#667085;
+  font-size:12px;
+  margin-top:5px
+}
+
+.student-name{
+  font-size:19px;
+  font-weight:900;
+  color:#172033;
+  text-transform:uppercase;
+  margin:7px 0
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-bottom:16px
+}
+
+.info{
+  background:#f7f9fc;
+  border-radius:11px;
+  padding:11px
+}
+
+.info small{
+  display:block;
+  color:#667085;
+  font-size:10px;
+  margin-bottom:4px
+}
+
+.info strong{
+  font-size:13px
+}
+
+.table-wrap{
+  overflow-x:auto
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px
+}
+
+th{
+  background:#0b579f;
+  color:white;
+  padding:10px 7px;
+  text-align:left
+}
+
+td{
+  padding:9px 7px;
+  border-bottom:1px solid #edf0f3
+}
+
+.total-row{
+  font-weight:900;
+  background:#f4f8fc
+}
+
+.summary{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:15px
+}
+
+.summary-box{
+  text-align:center;
+  padding:12px 5px;
+  border-radius:12px;
+  background:#f5f8fb
+}
+
+.summary-box small{
+  display:block;
+  font-size:10px;
+  color:#667085;
+  margin-bottom:5px
+}
+
+.summary-box strong{
+  font-size:16px;
+  color:#0b579f
+}
+
+.status{
+  display:inline-block;
+  padding:5px 12px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:900
+}
+
+.pass{
+  background:#dcfae6;
+  color:#087443
+}
+
+.fail{
+  background:#ffe4e4;
+  color:#b42318
+}
+
+.footer{
+  text-align:center;
+  color:#8a96a6;
+  font-size:11px;
+  line-height:1.6;
+  margin-top:10px
+}
+
+.firebase-note{
+  font-size:10px;
+  color:#98a2b3;
+  text-align:center;
+  margin-top:8px
+}
+
+@media(max-width:380px){
+
+  .classes{
+    gap:8px
+  }
+
+  .class-box{
+    padding:14px 7px
+  }
+
+  .header h1{
+    font-size:19px
+  }
+
+  .summary{
+    grid-template-columns:1fr
+  }
+}
+
+@media print{
+
+  body{
+    background:white
+  }
+
+  .header{
+    box-shadow:none;
+    border-radius:0
+  }
+
+  .no-print{
+    display:none!important
+  }
+
+  .container{
+    max-width:800px
+  }
+
+  .card{
+    box-shadow:none;
+    border:1px solid #ddd
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">BS</div>
+
+<h1>BURSAALAX SECONDARY SCHOOL</h1>
+
+<p>SHAACINTA NATIIJOOYINKA ARDEYDA</p>
+
+<span class="year">
+FINAL EXAMINATION RESULTS • 2025 - 2026
+</span>
+
+</header>
+
+
+<main class="container">
+
+<div class="progress no-print">
+
+<div class="progress-item active" id="p1"></div>
+
+<div class="progress-item" id="p2"></div>
+
+<div class="progress-item" id="p3"></div>
+
+</div>
+
+
+<section class="card step active" id="step1">
+
+<div class="card-title">
+Dooro Fasal
+</div>
+
+<div class="card-subtitle">
+Marka hore dooro fasalka aad dhigato si aad u hesho natiijada imtixaanka.
+</div>
+
+
+<div class="classes">
+
+<div class="class-box" onclick="selectClass('Form One')">
+
+<div class="class-icon">1</div>
+
+<h3>Form One</h3>
+
+<p>Class A & B</p>
+
+</div>
+
+
+<div class="class-box" onclick="selectClass('Form Two')">
+
+<div class="class-icon">2</div>
+
+<h3>Form Two</h3>
+
+<p>Class A & B</p>
+
+</div>
+
+
+<div class="class-box" onclick="selectClass('Form Three')">
+
+<div class="class-icon">3</div>
+
+<h3>Form Three</h3>
+
+<p>Class A & B</p>
+
+</div>
+
+
+<div class="class-box" onclick="selectClass('Form Four')">
+
+<div class="class-icon">4</div>
+
+<h3>Form Four</h3>
+
+<p>Class A & B</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card step" id="step2">
+
+<div class="card-title">
+Raadi Natiijada
+</div>
+
+<div class="card-subtitle">
+Geli Roll Number-ka laguu qoondeeyey.
+</div>
+
+<div class="notice">
+
+<strong>Fiiro gaar ah:</strong><br>
+
+Roll Number-ka wuxuu ka kooban yahay
+<strong>BS26</strong>
+iyo Attendance Number-kaaga.
+
+</div>
+
+
+<div class="form-group">
+
+<label for="rollNumber">
+Roll Number
+</label>
+
+<input
+type="text"
+id="rollNumber"
+maxlength="6"
+autocomplete="off"
+inputmode="text"
+oninput="this.value=this.value.toUpperCase()"
+>
+
+</div>
+
+
+<div class="error" id="searchError"></div>
+
+
+<button class="btn" onclick="searchResult()">
+Raadi Natiijada
+</button>
+
+
+<button class="btn secondary" onclick="goStep(1)">
+← Dib ugu noqo Fasallada
+</button>
+
+</section>
+
+
+<section class="card step" id="step3">
+
+<div class="result-header">
+
+<h2>
+NATIIJADA IMTIXAANKA
+</h2>
+
+<p>
+Bursaalax Secondary School
+</p>
+
+<div class="student-name" id="studentName">
+-
+</div>
+
+</div>
+
+
+<div class="info-grid">
+
+<div class="info">
+
+<small>FASALKA</small>
+
+<strong id="studentClass">
+-
+</strong>
+
+</div>
+
+
+<div class="info">
+
+<small>CLASS</small>
+
+<strong id="studentSection">
+-
+</strong>
+
+</div>
+
+
+<div class="info">
+
+<small>ATTENDANCE NO.</small>
+
+<strong id="attendanceNo">
+-
+</strong>
+
+</div>
+
+
+<div class="info">
+
+<small>ROLL NUMBER</small>
+
+<strong id="resultRoll">
+-
+</strong>
+
+</div>
+
+
+<div class="info">
+
+<small>ACADEMIC YEAR</small>
+
+<strong>
+2025 - 2026
+</strong>
+
+</div>
+
+
+<div class="info">
+
+<small>STATUS</small>
+
+<strong id="resultStatus">
+-
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Maadada
+</th>
+
+<th>
+Dhibcaha
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="subjectsBody"></tbody>
+
+
+<tfoot>
+
+<tr class="total-row">
+
+<td>
+TOTAL
+</td>
+
+<td id="totalMarks">
+0
+</td>
+
+</tr>
+
+</tfoot>
+
+</table>
+
+</div>
+
+
+<div class="summary">
+
+<div class="summary-box">
+
+<small>
+AVERAGE
+</small>
+
+<strong id="average">
+0%
+</strong>
+
+</div>
+
+
+<div class="summary-box">
+
+<small>
+GRADE
+</small>
+
+<strong id="grade">
+-
+</strong>
+
+</div>
+
+
+<div class="summary-box">
+
+<small>
+STATUS
+</small>
+
+<strong id="summaryStatus">
+-
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="no-print">
+
+<button
+class="btn"
+style="margin-top:16px"
+onclick="window.print()"
+>
+🖨 Daabac Natiijada
+</button>
+
+
+<button
+class="btn secondary"
+onclick="newSearch()"
+>
+Raadi Arday Kale
+</button>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+
+Bursaalax Secondary School<br>
+
+Official Examination Results Portal<br>
+
+© 2025 - 2026
+
+<div class="firebase-note">
+Nidaamka natiijooyinka wuxuu si ammaan ah u diiwaangeliyaa booqashada natiijada.
+</div>
+
+</div>
+
+</main>
+
+
+<script type="module">
+
+import {
+initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+getAuth,
+signInAnonymously
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+import {
+getDatabase,
+ref,
+push,
+serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-database.js";
+
+
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyDMHEKKTRTrHlrwxk5-wXj3qNIW9TzaNV0",
+
+authDomain:
+"natiijada-ardeyda.firebaseapp.com",
+
+databaseURL:
+"https://natiijada-ardeyda-default-rtdb.firebaseio.com",
+
+projectId:
+"natiijada-ardeyda",
+
+storageBucket:
+"natiijada-ardeyda.firebasestorage.app",
+
+messagingSenderId:
+"950238059994",
+
+appId:
+"1:950238059994:web:ba71e09d01987a5f35b4e3",
+
+measurementId:
+"G-5FDGXJDJ5S"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const database = getDatabase(app);
+
+let firebaseReady = false;
+
+
+/* =========================
+   ANONYMOUS LOGIN
+========================= */
+
+signInAnonymously(auth)
+
+.then(() => {
+
+firebaseReady = true;
+
+console.log("Firebase Anonymous Authentication OK");
+
+})
+
+.catch(error => {
+
+console.error(
+"Firebase Authentication error:",
+error
+);
+
+});
+
+
+
+/* =========================
+   STUDENTS
+========================= */
+
+const students = [
+
+{
+roll:"BS261",
+attendance:"1",
+className:"Form One",
+section:"A",
+name:"ABDULLAHI MOHAMED AHMED",
+
+subjects:{
+English:86,
+Mathematics:91,
+Somali:88,
+Arabic:84,
+"Islamic Studies":92,
+Geography:87,
+History:89,
+Science:90,
+ICT:94,
+Business:91
+}
+},
+
+
+{
+roll:"BS262",
+attendance:"2",
+className:"Form One",
+section:"A",
+name:"SACDIYO MOHAMED ALI",
+
+subjects:{
+English:82,
+Mathematics:88,
+Somali:85,
+Arabic:80,
+"Islamic Studies":90,
+Geography:84,
+History:86,
+Science:88,
+ICT:92,
+Business:85
+}
+},
+
+
+{
+roll:"BS263",
+attendance:"3",
+className:"Form One",
+section:"A",
+name:"SAMSAM ABDULLAHI FARAH",
+
+subjects:{
+English:78,
+Mathematics:83,
+Somali:81,
+Arabic:77,
+"Islamic Studies":87,
+Geography:80,
+History:79,
+Science:84,
+ICT:89,
+Business:82
+}
+},
+
+
+{
+roll:"BS264",
+attendance:"4",
+className:"Form One",
+section:"A",
+name:"KHADRO HASSAN AHMED",
+
+subjects:{
+English:74,
+Mathematics:79,
+Somali:80,
+Arabic:75,
+"Islamic Studies":84,
+Geography:77,
+History:76,
+Science:82,
+ICT:86,
+Business:79
+}
+},
+
+
+{
+roll:"BS265",
+attendance:"5",
+className:"Form One",
+section:"A",
+name:"SHUCAYB KARAHAYE",
+
+subjects:{
+English:69,
+Mathematics:73,
+Somali:76,
+Arabic:70,
+"Islamic Studies":80,
+Geography:72,
+History:74,
+Science:78,
+ICT:83,
+Business:71
+}
+},
+
+
+{
+roll:"BS266",
+attendance:"6",
+className:"Form One",
+section:"B",
+name:"FATIMA ABDI JAMA",
+
+subjects:{
+English:87,
+Mathematics:89,
+Somali:91,
+Arabic:88,
+"Islamic Studies":93,
+Geography:90,
+History:86,
+Science:92,
+ICT:96,
+Business:88
+}
+},
+
+
+{
+roll:"BS267",
+attendance:"7",
+className:"Form One",
+section:"B",
+name:"AHMED FARAH ALI",
+
+subjects:{
+English:81,
+Mathematics:85,
+Somali:83,
+Arabic:80,
+"Islamic Studies":87,
+Geography:84,
+History:82,
+Science:85,
+ICT:89,
+Business:83
+}
+},
+
+
+{
+roll:"BS268",
+attendance:"8",
+className:"Form One",
+section:"B",
+name:"MARYAN HASSAN ABDI",
+
+subjects:{
+English:75,
+Mathematics:79,
+Somali:82,
+Arabic:78,
+"Islamic Studies":85,
+Geography:76,
+History:80,
+Science:84,
+ICT:88,
+Business:77
+}
+},
+
+
+{
+roll:"BS269",
+attendance:"9",
+className:"Form One",
+section:"B",
+name:"IBRAHIM MOHAMED NUR",
+
+subjects:{
+English:72,
+Mathematics:76,
+Somali:74,
+Arabic:71,
+"Islamic Studies":82,
+Geography:73,
+History:78,
+Science:80,
+ICT:84,
+Business:76
+}
+},
+
+
+{
+roll:"BS2610",
+attendance:"10",
+className:"Form One",
+section:"B",
+name:"HANI ABDULLAHI OMAR",
+
+subjects:{
+English:66,
+Mathematics:70,
+Somali:74,
+Arabic:69,
+"Islamic Studies":78,
+Geography:72,
+History:71,
+Science:75,
+ICT:80,
+Business:68
+}
+},
+
+
+{
+roll:"BS261",
+attendance:"1",
+className:"Form Two",
+section:"A",
+name:"MOHAMED ABDI FARAH",
+
+subjects:{
+English:89,
+Mathematics:92,
+Somali:90,
+Arabic:87,
+"Islamic Studies":95,
+Geography:91,
+History:90,
+Science:93,
+ICT:96,
+Business:91
+}
+},
+
+
+{
+roll:"BS262",
+attendance:"2",
+className:"Form Two",
+section:"A",
+name:"ASMA ABDINOUR ALI",
+
+subjects:{
+English:84,
+Mathematics:88,
+Somali:86,
+Arabic:83,
+"Islamic Studies":91,
+Geography:87,
+History:85,
+Science:89,
+ICT:93,
+Business:86
+}
+},
+
+
+{
+roll:"BS263",
+attendance:"3",
+className:"Form Two",
+section:"A",
+name:"ABDULKADIR HASSAN MOHAMED",
+
+subjects:{
+English:79,
+Mathematics:82,
+Somali:84,
+Arabic:80,
+"Islamic Studies":88,
+Geography:83,
+History:81,
+Science:86,
+ICT:90,
+Business:82
+}
+},
+
+
+{
+roll:"BS264",
+attendance:"4",
+className:"Form Two",
+section:"A",
+name:"NAJMA FARAH AHMED",
+
+subjects:{
+English:76,
+Mathematics:80,
+Somali:81,
+Arabic:78,
+"Islamic Studies":85,
+Geography:79,
+History:77,
+Science:83,
+ICT:87,
+Business:80
+}
+},
+
+
+{
+roll:"BS265",
+attendance:"5",
+className:"Form Two",
+section:"A",
+name:"YUSUF ABDI OMAR",
+
+subjects:{
+English:71,
+Mathematics:75,
+Somali:78,
+Arabic:73,
+"Islamic Studies":82,
+Geography:76,
+History:74,
+Science:79,
+ICT:84,
+Business:75
+}
+},
+
+
+{
+roll:"BS266",
+attendance:"6",
+className:"Form Two",
+section:"B",
+name:"HODAN MOHAMED ALI",
+
+subjects:{
+English:88,
+Mathematics:90,
+Somali:89,
+Arabic:85,
+"Islamic Studies":94,
+Geography:90,
+History:88,
+Science:91,
+ICT:95,
+Business:89
+}
+},
+
+
+{
+roll:"BS267",
+attendance:"7",
+className:"Form Two",
+section:"B",
+name:"ABDIKANI FARAH JAMA",
+
+subjects:{
+English:85,
+Mathematics:87,
+Somali:86,
+Arabic:82,
+"Islamic Studies":91,
+Geography:88,
+History:84,
+Science:89,
+ICT:92,
+Business:87
+}
+},
+
+
+{
+roll:"BS268",
+attendance:"8",
+className:"Form Two",
+section:"B",
+name:"KHAYRE DEK MAHMOUD",
+
+subjects:{
+English:83,
+Mathematics:86,
+Somali:84,
+Arabic:81,
+"Islamic Studies":89,
+Geography:85,
+History:83,
+Science:87,
+ICT:91,
+Business:85
+}
+},
+
+
+{
+roll:"BS269",
+attendance:"9",
+className:"Form Two",
+section:"B",
+name:"KAWSAR MAHMOUD MOHAMED",
+
+subjects:{
+English:80,
+Mathematics:84,
+Somali:82,
+Arabic:79,
+"Islamic Studies":87,
+Geography:83,
+History:80,
+Science:85,
+ICT:89,
+Business:82
+}
+},
+
+
+{
+roll:"BS2610",
+attendance:"10",
+className:"Form Two",
+section:"B",
+name:"ABDURAHMAN IRRO AHMED",
+
+subjects:{
+English:78,
+Mathematics:81,
+Somali:80,
+Arabic:76,
+"Islamic Studies":85,
+Geography:80,
+History:78,
+Science:83,
+ICT:87,
+Business:80
+}
+},
+
+
+{
+roll:"BS261",
+attendance:"1",
+className:"Form Three",
+section:"A",
+name:"FARHIA ABDINOUR AHMED",
+
+subjects:{
+English:92,
+Mathematics:94,
+Somali:91,
+Arabic:89,
+"Islamic Studies":96,
+Geography:93,
+History:92,
+Science:95,
+ICT:98,
+Business:93
+}
+},
+
+
+{
+roll:"BS262",
+attendance:"2",
+className:"Form Three",
+section:"A",
+name:"BISHARO MAHMOUD MOHAMED",
+
+subjects:{
+English:88,
+Mathematics:91,
+Somali:89,
+Arabic:86,
+"Islamic Studies":94,
+Geography:90,
+History:88,
+Science:92,
+ICT:95,
+Business:90
+}
+},
+
+
+{
+roll:"BS263",
+attendance:"3",
+className:"Form Three",
+section:"A",
+name:"ABDIKARIM MOHAMED JAMA",
+
+subjects:{
+English:85,
+Mathematics:88,
+Somali:87,
+Arabic:83,
+"Islamic Studies":91,
+Geography:86,
+History:84,
+Science:89,
+ICT:93,
+Business:87
+}
+},
+
+
+{
+roll:"BS264",
+attendance:"4",
+className:"Form Three",
+section:"A",
+name:"SAFIA ABDI AHMED",
+
+subjects:{
+English:82,
+Mathematics:85,
+Somali:84,
+Arabic:80,
+"Islamic Studies":89,
+Geography:84,
+History:82,
+Science:86,
+ICT:90,
+Business:84
+}
+},
+
+
+{
+roll:"BS265",
+attendance:"5",
+className:"Form Three",
+section:"A",
+name:"OMAR HASSAN FARAH",
+
+subjects:{
+English:77,
+Mathematics:81,
+Somali:79,
+Arabic:75,
+"Islamic Studies":84,
+Geography:80,
+History:77,
+Science:82,
+ICT:86,
+Business:79
+}
+},
+
+
+{
+roll:"BS266",
+attendance:"6",
+className:"Form Three",
+section:"B",
+name:"AMINA MOHAMED ABDI",
+
+subjects:{
+English:90,
+Mathematics:93,
+Somali:91,
+Arabic:88,
+"Islamic Studies":95,
+Geography:92,
+History:90,
+Science:94,
+ICT:97,
+Business:92
+}
+},
+
+
+{
+roll:"BS267",
+attendance:"7",
+className:"Form Three",
+section:"B",
+name:"MUSTAFA ABDULLAHI ALI",
+
+subjects:{
+English:86,
+Mathematics:89,
+Somali:87,
+Arabic:84,
+"Islamic Studies":92,
+Geography:88,
+History:86,
+Science:90,
+ICT:94,
+Business:88
+}
+},
+
+
+{
+roll:"BS268",
+attendance:"8",
+className:"Form Three",
+section:"B",
+name:"RAHMA HASSAN OMAR",
+
+subjects:{
+English:81,
+Mathematics:84,
+Somali:83,
+Arabic:80,
+"Islamic Studies":88,
+Geography:85,
+History:81,
+Science:86,
+ICT:91,
+Business:84
+}
+},
+
+
+{
+roll:"BS269",
+attendance:"9",
+className:"Form Three",
+section:"B",
+name:"HAMZA FARAH MOHAMED",
+
+subjects:{
+English:75,
+Mathematics:79,
+Somali:78,
+Arabic:73,
+"Islamic Studies":83,
+Geography:77,
+History:75,
+Science:81,
+ICT:85,
+Business:78
+}
+},
+
+
+{
+roll:"BS2610",
+attendance:"10",
+className:"Form Three",
+section:"B",
+name:"SUMAYYA ABDI NUR",
+
+subjects:{
+English:70,
+Mathematics:74,
+Somali:76,
+Arabic:71,
+"Islamic Studies":80,
+Geography:73,
+History:72,
+Science:78,
+ICT:83,
+Business:75
+}
+},
+
+
+{
+roll:"BS261",
+attendance:"1",
+className:"Form Four",
+section:"A",
+name:"AHMED ABDULLAHI MOHAMED",
+
+subjects:{
+English:94,
+Mathematics:96,
+Somali:93,
+Arabic:91,
+"Islamic Studies":98,
+Geography:95,
+History:94,
+Science:97,
+ICT:99,
+Business:95
+}
+},
+
+
+{
+roll:"BS262",
+attendance:"2",
+className:"Form Four",
+section:"A",
+name:"MARYAN FARAH HASSAN",
+
+subjects:{
+English:91,
+Mathematics:94,
+Somali:92,
+Arabic:89,
+"Islamic Studies":96,
+Geography:93,
+History:91,
+Science:95,
+ICT:98,
+Business:93
+}
+},
+
+
+{
+roll:"BS263",
+attendance:"3",
+className:"Form Four",
+section:"A",
+name:"ABDULLAHI IRRO AHMED",
+
+subjects:{
+English:88,
+Mathematics:92,
+Somali:90,
+Arabic:86,
+"Islamic Studies":94,
+Geography:91,
+History:89,
+Science:93,
+ICT:96,
+Business:91
+}
+},
+
+
+{
+roll:"BS264",
+attendance:"4",
+className:"Form Four",
+section:"A",
+name:"KHADIJA MOHAMED ALI",
+
+subjects:{
+English:85,
+Mathematics:89,
+Somali:87,
+Arabic:83,
+"Islamic Studies":92,
+Geography:88,
+History:85,
+Science:90,
+ICT:94,
+Business:88
+}
+},
+
+
+{
+roll:"BS265",
+attendance:"5",
+className:"Form Four",
+section:"A",
+name:"IBRAHIM HASSAN OMAR",
+
+subjects:{
+English:81,
+Mathematics:85,
+Somali:83,
+Arabic:79,
+"Islamic Studies":88,
+Geography:84,
+History:81,
+Science:86,
+ICT:91,
+Business:84
+}
+},
+
+
+{
+roll:"BS266",
+attendance:"6",
+className:"Form Four",
+section:"B",
+name:"ASLI ABDINOUR AHMED",
+
+subjects:{
+English:90,
+Mathematics:93,
+Somali:91,
+Arabic:88,
+"Islamic Studies":95,
+Geography:92,
+History:90,
+Science:94,
+ICT:97,
+Business:92
+}
+},
+
+
+{
+roll:"BS267",
+attendance:"7",
+className:"Form Four",
+section:"B",
+name:"ABDIFATAH FARAH JAMA",
+
+subjects:{
+English:86,
+Mathematics:89,
+Somali:87,
+Arabic:84,
+"Islamic Studies":92,
+Geography:88,
+History:86,
+Science:90,
+ICT:94,
+Business:88
+}
+},
+
+
+{
+roll:"BS268",
+attendance:"8",
+className:"Form Four",
+section:"B",
+name:"HAFSA MOHAMED NUR",
+
+subjects:{
+English:83,
+Mathematics:86,
+Somali:84,
+Arabic:81,
+"Islamic Studies":90,
+Geography:85,
+History:83,
+Science:88,
+ICT:92,
+Business:85
+}
+},
+
+
+{
+roll:"BS269",
+attendance:"9",
+className:"Form Four",
+section:"B",
+name:"YASIN ABDI AHMED",
+
+subjects:{
+English:78,
+Mathematics:82,
+Somali:80,
+Arabic:76,
+"Islamic Studies":86,
+Geography:81,
+History:78,
+Science:84,
+ICT:89,
+Business:81
+}
+},
+
+
+{
+roll:"BS2610",
+attendance:"10",
+className:"Form Four",
+section:"B",
+name:"FADUMO HASSAN ALI",
+
+subjects:{
+English:74,
+Mathematics:78,
+Somali:76,
+Arabic:72,
+"Islamic Studies":82,
+Geography:77,
+History:74,
+Science:80,
+ICT:85,
+Business:77
+}
+}
+
+];
+
+
+/* =========================
+   WEBSITE FUNCTIONS
+========================= */
+
+let selectedClass = "";
+
+let currentStudent = null;
+
+
+function goStep(number){
+
+document
+.querySelectorAll(".step")
+.forEach(s =>
+s.classList.remove("active")
+);
+
+const step =
+document.getElementById("step"+number);
+
+if(step){
+step.classList.add("active");
+}
+
+
+document
+.querySelectorAll(".progress-item")
+.forEach(p =>
+p.classList.remove("active")
+);
+
+
+for(let i=1;i<=number;i++){
+
+const p =
+document.getElementById("p"+i);
+
+if(p){
+p.classList.add("active");
+}
+
+}
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+
+function selectClass(className){
+
+selectedClass = className;
+
+document
+.getElementById("rollNumber")
+.value = "";
+
+document
+.getElementById("searchError")
+.style.display = "none";
+
+goStep(2);
+
+setTimeout(() => {
+
+document
+.getElementById("rollNumber")
+.focus();
+
+},300);
+
+}
+
+
+
+function searchResult(){
+
+const input =
+document.getElementById("rollNumber");
+
+const error =
+document.getElementById("searchError");
+
+const roll =
+input.value.trim().toUpperCase();
+
+error.style.display = "none";
+
+
+if(roll === ""){
+
+error.textContent =
+"Fadlan geli Roll Number-kaaga.";
+
+error.style.display = "block";
+
+return;
+
+}
+
+
+if(!roll.startsWith("BS26")){
+
+error.textContent =
+"Roll Number-ku waa inuu ku bilaabmaa BS26.";
+
+error.style.display = "block";
+
+return;
+
+}
+
+
+const attendance =
+roll.substring(4);
+
+
+if(
+attendance === "" ||
+isNaN(attendance) ||
+Number(attendance) < 1 ||
+Number(attendance) > 10
+){
+
+error.textContent =
+"Attendance Number-ku waa inuu u dhexeeyaa 1 ilaa 10.";
+
+error.style.display = "block";
+
+return;
+
+}
+
+
+currentStudent =
+students.find(student =>
+student.className === selectedClass &&
+student.roll === roll
+);
+
+
+if(!currentStudent){
+
+error.textContent =
+"Natiijo lagama helin Roll Number-kan fasalka aad dooratay. Fadlan hubi Roll Number-kaaga.";
+
+error.style.display = "block";
+
+return;
+
+}
+
+
+showResult(currentStudent);
+
+}
+
+
+
+function showResult(student){
+
+document
+.getElementById("studentName")
+.textContent = student.name;
+
+
+document
+.getElementById("studentClass")
+.textContent = student.className;
+
+
+document
+.getElementById("studentSection")
+.textContent = student.section;
+
+
+document
+.getElementById("attendanceNo")
+.textContent = student.attendance;
+
+
+document
+.getElementById("resultRoll")
+.textContent = student.roll;
+
+
+const body =
+document.getElementById("subjectsBody");
+
+body.innerHTML = "";
+
+
+let total = 0;
+
+let subjectCount = 0;
+
+
+Object.entries(student.subjects)
+.forEach(([subject,mark]) => {
+
+total += Number(mark);
+
+subjectCount++;
+
+
+const row =
+document.createElement("tr");
+
+const c1 =
+document.createElement("td");
+
+const c2 =
+document.createElement("td");
+
+
+c1.textContent = subject;
+
+c2.textContent = mark;
+
+
+row.appendChild(c1);
+
+row.appendChild(c2);
+
+body.appendChild(row);
+
+});
+
+
+const average =
+total / subjectCount;
+
+
+const grade =
+getGrade(average);
+
+
+const status =
+average >= 50
+? "GUDBEY"
+: "DHACAY";
+
+
+document
+.getElementById("totalMarks")
+.textContent =
+total.toFixed(1);
+
+
+document
+.getElementById("average")
+.textContent =
+average.toFixed(1)+"%";
+
+
+document
+.getElementById("grade")
+.textContent =
+grade;
+
+
+const statusHTML =
+
+`<span class="status ${
+status==="GUDBEY"
+?"pass"
+:"fail"
+}">${status}</span>`;
+
+
+document
+.getElementById("resultStatus")
+.innerHTML =
+statusHTML;
+
+
+document
+.getElementById("summaryStatus")
+.innerHTML =
+statusHTML;
+
+
+/*
+  Firebase:
+  Marka natiijada la tuso,
+  booqashada waxaa lagu kaydinayaa
+  Realtime Database.
+*/
+
+saveViewerToFirebase(
+student,
+average,
+grade,
+status
+);
+
+
+goStep(3);
+
+}
+
+
+
+function getGrade(avg){
+
+if(avg >= 90)
+return "A+";
+
+if(avg >= 80)
+return "A";
+
+if(avg >= 70)
+return "B";
+
+if(avg >= 60)
+return "C";
+
+if(avg >= 50)
+return "D";
+
+return "F";
+
+}
+
+
+
+/* =========================
+   FIREBASE RESULT VIEW LOG
+========================= */
+
+async function saveViewerToFirebase(
+student,
+average,
+grade,
+status
+){
+
+try{
+
+if(!firebaseReady){
+
+await new Promise(resolve => {
+
+let tries = 0;
+
+const timer =
+setInterval(() => {
+
+tries++;
+
+if(
+firebaseReady ||
+tries >= 30
+){
+
+clearInterval(timer);
+
+resolve();
+
+}
+
+},100);
+
+});
+
+}
+
+
+if(!firebaseReady)
+return;
+
+
+await push(
+ref(database,"resultViews"),
+{
+
+name:student.name,
+
+roll:student.roll,
+
+attendance:student.attendance,
+
+className:student.className,
+
+section:student.section,
+
+average:Number(
+average.toFixed(1)
+),
+
+grade:grade,
+
+status:status,
+
+viewedAt:serverTimestamp()
+
+}
+
+);
+
+
+console.log(
+"Result view saved."
+);
+
+
+}catch(error){
+
+console.error(
+"Firebase logging error:",
+error
+);
+
+}
+
+}
+
+
+
+/* =========================
+   NEW SEARCH
+========================= */
+
+function newSearch(){
+
+currentStudent = null;
+
+document
+.getElementById("rollNumber")
+.value = "";
+
+document
+.getElementById("searchError")
+.style.display = "none";
+
+goStep(1);
+
+}
+
+
+
+/* =========================
+   MAKE FUNCTIONS AVAILABLE
+========================= */
+
+window.selectClass =
+selectClass;
+
+window.searchResult =
+searchResult;
+
+window.newSearch =
+newSearch;
+
+window.goStep =
+goStep;
+
+</script>
+
+</body>
+</html>
